@@ -13,5 +13,15 @@ public enum FizeteseMod {
     KESZPENZ,   //1
     UTALAS,     //2
     CSEKK,      //3
-    NA,         //4
+    NA,;         //4
+    
+    public static FizeteseMod parsFizeteseMod(String s) {
+        switch (s) {
+            case "KARTYA": return KARTYA;
+            case "KESZPENZ": return KESZPENZ;
+            case "UTALAS": return UTALAS;
+            case "CSEKK": return CSEKK;
+            default: return NA;
+        }
+    }
 }
