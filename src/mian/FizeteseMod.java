@@ -24,4 +24,6 @@ public enum FizeteseMod {
             default: return NA;
         }
     }
+    
+    
 }
