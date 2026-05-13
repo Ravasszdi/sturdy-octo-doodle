@@ -21,7 +21,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        records = Beolvas.FuvarRecordPars("./src/assets/fuvar.csv");
+        records = Beolvas.FuvarRecordParse("./src/assets/fuvar.csv");
         System.out.println("feladat1:" + feladat1());
         System.out.println("feladat2:" + feladat2());
         System.out.println("feladat3:" + feladat3((float) 355.5));
@@ -116,7 +116,7 @@ public class Main {
         FizeteseMod[] fizfaj = {FizeteseMod.CSEKK, FizeteseMod.KARTYA, FizeteseMod.KESZPENZ, FizeteseMod.UTALAS,
             FizeteseMod.NA};
         int ki = 0;
-        for (int i = 0; i < fizfaj.length; i++) {
+        for(int i = 0; i < fizfaj.length; i++) {
             ki += eld(records, fizfaj[i]) ? 1 : 0;
         }
         return ki;

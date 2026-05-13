@@ -38,7 +38,7 @@ public class Beolvas {
         return fuvarok;
     }
     
-    public static List FuvarRecordPars(String path) throws IOException{
+    public static List FuvarRecordParse(String path) throws IOException{
         List sorok = Beolvasas(path);
         return FuvarListazas(sorok);
     }
