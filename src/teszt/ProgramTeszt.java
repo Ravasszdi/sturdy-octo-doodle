@@ -7,7 +7,9 @@ package teszt;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import mian.Beolvas;
 import mian.Fuvar;
 
@@ -16,6 +18,8 @@ import mian.Fuvar;
  * @author HarasztiMihály(SZF_N
  */
 public class ProgramTeszt {
+    List<Fuvar> fuvar;
+    
     public static void main(String[] args) throws IOException {
         ProgramTeszt teszt = new ProgramTeszt();
         teszt.tesztFileBeolvasas();
@@ -34,7 +38,7 @@ public class ProgramTeszt {
     }
     
     void tesztRendszamForma() throws IOException{
-        List<Fuvar> fuvar = Beolvas.FuvarRecordParse("src/assets/fuvar.csv");
+        fuvar = Beolvas.FuvarRecordParse("src/assets/fuvar.csv");
         String[] rsz = fuvar.get(0).getRendszam().split("-");
         String abc = rsz[0];
         String szam = rsz[1];
@@ -42,4 +46,14 @@ public class ProgramTeszt {
         Integer.parseInt(szam);
         assert szam.length()==3 : "nem 3 szam jegyű";
     }
+    
+    void tesztRendszamkulombseg() throws IOException{
+        int elfogadott = 5;
+        int maximum = 90;
+        fuvar = Beolvas.FuvarRecordParse("src/assets/fuvar.csv");
+        Set<String> rsz = new HashSet<>();
+        for(int i = 0; i < fuvar.size(); i++) rsz.add(fuvar.get(i).getRendszam());
+        assert rsz.size()>=elfogadott&&rsz.size()<=elfogadott : "nincs megfelelő menyiségű úgyanolyan rendszám a file-ban";
+    }
+    
 }
